@@ -1,0 +1,14 @@
+language: cpp
+compiler:
+  - g++
+os:
+- linux
+
+script:
+- if [ $TRAVIS_OS_NAME == linux ]; then g++ src/make_xor_training_data.cpp -o make_xor_training_data.out;./make_xor_training_data.out;g++ src/nn_cpp.cpp -o nn_cpp.out;./nn_cpp.out>out.txt fi
+
+branches:
+  only:
+  - master
+notifications:
+  email: false
